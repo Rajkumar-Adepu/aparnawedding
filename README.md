@@ -1,6 +1,6 @@
-# Ivory Elegance Invitation
+# Adepu Aparna & Gaddamidi Aravind Wedding Invitation
 
-A standalone ivory-and-gold wedding invitation website inspired by luxury digital invitation layouts.
+A standalone ivory-and-gold wedding invitation website for Sunday, 05 July 2026 at 8:25AM IST.
 
 ## Open locally
 

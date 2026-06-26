@@ -352,9 +352,30 @@ textarea {
 .hero-content {
   position: relative;
   z-index: 2;
-  width: min(100%, 860px);
-  margin-top: 58px;
+  width: min(100%, 960px);
+  margin-top: 72px;
   text-align: center;
+}
+
+.ganesh-blessing {
+  width: min(44vw, 172px);
+  aspect-ratio: 1;
+  margin: 0 auto 24px;
+  border: 1px solid rgba(241, 216, 141, 0.46);
+  border-radius: 50%;
+  overflow: hidden;
+  background: rgba(8, 7, 6, 0.72);
+  box-shadow:
+    0 0 0 10px rgba(216, 177, 93, 0.06),
+    0 20px 58px rgba(0, 0, 0, 0.46);
+}
+
+.ganesh-blessing img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
 }
 
 .eyebrow,
@@ -372,9 +393,9 @@ textarea {
   margin: 0;
   color: var(--ink);
   font-family: "Great Vibes", "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(4.8rem, 12vw, 11rem);
+  font-size: clamp(3.35rem, 8.5vw, 7.8rem);
   font-weight: 400;
-  line-height: 0.84;
+  line-height: 0.92;
   text-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
 }
 
@@ -393,11 +414,12 @@ textarea {
 }
 
 .hero-copy {
-  width: min(100%, 640px);
-  margin: 30px auto 0;
-  color: var(--muted);
+  width: min(100%, 700px);
+  margin: 28px auto 0;
+  color: var(--ink);
   font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(1.16rem, 2.2vw, 1.55rem);
+  font-size: clamp(1.28rem, 2.4vw, 1.8rem);
+  font-style: italic;
 }
 
 .scroll-cue {
@@ -534,7 +556,7 @@ textarea {
   display: block;
   margin-top: 14px;
   font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: clamp(2rem, 8vw, 3.6rem);
+  font-size: clamp(1.85rem, 6.5vw, 3.2rem);
   line-height: 1;
 }
 
@@ -745,6 +767,23 @@ textarea {
   line-height: 1.2;
 }
 
+.qr-panel div {
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.qr-panel img {
+  width: min(100%, 280px);
+  aspect-ratio: 1;
+  display: block;
+  border: 10px solid #fff;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.32);
+}
+
 .rsvp-form {
   width: min(100%, 760px);
   display: grid;
@@ -807,8 +846,9 @@ textarea {
 .site-footer p {
   margin: 0;
   color: var(--gold-2);
-  font-family: "Great Vibes", "Cormorant Garamond", Georgia, serif;
-  font-size: 3rem;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.1;
 }
 
 .site-footer span {

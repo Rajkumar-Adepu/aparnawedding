@@ -54,7 +54,7 @@ window.addEventListener("scroll", setActiveNav, { passive: true });
 window.addEventListener("resize", setActiveNav);
 setActiveNav();
 
-const weddingDate = new Date("2026-12-19T18:30:00");
+const weddingDate = new Date("2026-07-05T08:25:00+05:30");
 const countdownTargets = {
   days: document.querySelector('[data-countdown="days"]'),
   hours: document.querySelector('[data-countdown="hours"]'),
@@ -182,7 +182,7 @@ const shareButton = document.querySelector(".share-button");
 shareButton?.addEventListener("click", async () => {
   const shareData = {
     title: document.title,
-    text: "You are invited to Aarav and Mira's wedding celebration.",
+    text: "You are invited to Adepu Aparna and Gaddamidi Aravind's wedding celebration.",
     url: window.location.href,
   };
 
