@@ -14,7 +14,9 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=20260626-countdown" />
+    <link rel="icon" href="assets/favicon.png?v=20260629-footer-rsvp" type="image/png" />
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=20260629-footer-rsvp" />
+    <link rel="stylesheet" href="styles.css?v=20260629-footer-rsvp" />
   </head>
   <body class="is-locked">
     <div class="gate" aria-label="Invitation cover">
@@ -22,44 +24,49 @@
       <div class="gate-panel gate-panel-right" aria-hidden="true"></div>
       <div class="gate-line" aria-hidden="true"></div>
       <button class="gate-seal" type="button" aria-label="Open invitation">
-        <span class="seal-monogram" aria-hidden="true">A</span>
+        <img class="seal-photo" src="assets/couple-logo.jpg?v=20260629-couple-rsvp" alt="" aria-hidden="true" />
         <span class="seal-label">Tap to open</span>
       </button>
     </div>
+    <audio id="wedding-audio" src="assets/kalyanam.mp3" preload="auto" loop></audio>
 
     <header class="site-header">
       <a class="brand" href="#top" aria-label="Adepu Aparna and Gaddamidi Aravind invitation home">
-        <span class="brand-mark" aria-hidden="true">A</span>
-        <span>Adepu Aparna & Gaddamidi Aravind</span>
+        <span class="brand-mark" aria-hidden="true">
+          <img src="assets/couple-logo.jpg?v=20260629-couple-rsvp" alt="" />
+        </span>
+        <span>Aparna & Aravind</span>
       </a>
       <nav class="main-nav" aria-label="Invitation sections">
         <a href="#date">Date</a>
         <a href="#events">Events</a>
+        <a href="#live">Live</a>
         <a href="#venue">Venue</a>
         <a href="#rsvp">RSVP</a>
       </nav>
       <button class="share-button" type="button">Share</button>
+      <button class="music-toggle" type="button" hidden>Music</button>
     </header>
 
     <main id="top">
       <section class="hero" aria-labelledby="hero-title">
         <img
           class="hero-image"
-          src="assets/wedding-hero.png"
-          alt="Bride and groom walking toward a candlelit wedding ceremony"
+          src="assets/couple-hero.jpg"
+          alt="Adepu Aparna and Gaddamidi Aravind smiling together after the wedding ceremony"
         />
         <div class="hero-overlay" aria-hidden="true"></div>
         <div class="hero-frame" aria-hidden="true"></div>
+        <figure class="ganesh-blessing reveal">
+          <img src="assets/ganesh-opening.png" alt="Lord Ganesh blessing the wedding invitation" />
+        </figure>
 
         <div class="hero-content">
           <p class="eyebrow reveal">With the blessings of our families</p>
-          <figure class="ganesh-blessing reveal">
-            <img src="assets/ganesh-opening.png" alt="Lord Ganesh blessing the wedding invitation" />
-          </figure>
           <h1 id="hero-title" class="hero-title reveal">
-            <span>Adepu Aparna</span>
+            <span>Aparna</span>
             <small>&</small>
-            <span>Gaddamidi Aravind</span>
+            <span>Aravind</span>
           </h1>
           <p class="hero-copy reveal">
             Please attend my sister wedding from Rajkumar, Pranay Kumar, and Supraja.
@@ -100,19 +107,19 @@
 
       <section class="section-band gallery-band">
         <div class="section-heading reveal">
-          <p class="section-kicker">A glimpse of the day</p>
-          <h2>Candlelight, ivory florals, and a room full of love.</h2>
+          <p class="section-kicker">A glimpse of the couple</p>
+          <h2>Beautiful moments with Aparna and Aravind.</h2>
         </div>
 
         <div class="gallery-grid">
           <figure class="gallery-item reveal">
-            <img src="assets/wedding-hero.png" alt="Ivory floral wedding aisle" />
+            <img src="assets/couple-hero.jpg" alt="Aparna and Aravind holding hands and smiling" />
           </figure>
           <figure class="gallery-item gallery-item-focus reveal">
-            <img src="assets/wedding-hero.png" alt="Wedding couple in ivory ceremony decor" />
+            <img src="assets/couple-portrait.jpg" alt="Aparna and Aravind standing together in wedding attire" />
           </figure>
           <figure class="gallery-item reveal">
-            <img src="assets/wedding-hero.png" alt="Golden palace wedding venue" />
+            <img src="assets/couple-logo-square.jpg" alt="Close portrait of Aparna and Aravind" />
           </figure>
         </div>
       </section>
@@ -155,6 +162,14 @@
             <h3>Wedding Ceremony</h3>
             <p>Your gracious presence is requested as Adepu Aparna and Gaddamidi Aravind begin their married life together.</p>
           </article>
+        </div>
+      </section>
+
+      <section id="live" class="section-band live-band">
+        <div class="section-heading reveal">
+          <p class="section-kicker">Live</p>
+          <h2>Wedding live link</h2>
+          <p class="live-message">We will post the live link here 2 hours before the event.</p>
         </div>
       </section>
 
@@ -221,9 +236,16 @@
 
     <footer class="site-footer">
       <p>Adepu Aparna & Gaddamidi Aravind</p>
+      <div class="footer-invitees" aria-label="Invited by">
+        <strong>Invited by</strong>
+        <span>Adepu Vijayalaxmi & Kishan</span>
+        <span>Adepu Lavanya & Srinivas</span>
+      </div>
+      <div class="footer-love">Love from your brother (Raju) <span aria-hidden="true">&hearts;</span></div>
       <span>Sunday, 05 July 2026</span>
+      <small>Copyright reserved Brother 2026 to Lifetime</small>
     </footer>
 
-    <script src="script.js?v=20260626-countdown"></script>
+    <script src="script.js?v=20260629-footer-rsvp"></script>
   </body>
 </html>

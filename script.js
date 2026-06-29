@@ -1,6 +1,8 @@
 const body = document.body;
 const gate = document.querySelector(".gate");
 const gateSeal = document.querySelector(".gate-seal");
+const weddingAudio = document.querySelector("#wedding-audio");
+const musicToggle = document.querySelector(".music-toggle");
 const revealItems = document.querySelectorAll(".reveal");
 const navLinks = [...document.querySelectorAll(".main-nav a")];
 const sections = navLinks
@@ -9,6 +11,7 @@ const sections = navLinks
 
 function openInvitation() {
   window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  playWeddingSong();
   gate?.classList.add("is-open");
   body.classList.remove("is-locked");
   setTimeout(() => {
@@ -20,6 +23,36 @@ function openInvitation() {
 }
 
 gateSeal?.addEventListener("click", openInvitation);
+
+function updateMusicButton() {
+  if (!musicToggle || !weddingAudio) return;
+  musicToggle.hidden = false;
+  musicToggle.textContent = weddingAudio.paused ? "Play music" : "Pause music";
+}
+
+async function playWeddingSong() {
+  if (!weddingAudio) return;
+
+  try {
+    weddingAudio.volume = 0.72;
+    await weddingAudio.play();
+  } catch (error) {
+    // Some browsers still block audio; the visible music button lets guests retry.
+  } finally {
+    updateMusicButton();
+  }
+}
+
+musicToggle?.addEventListener("click", async () => {
+  if (!weddingAudio) return;
+
+  if (weddingAudio.paused) {
+    await playWeddingSong();
+  } else {
+    weddingAudio.pause();
+    updateMusicButton();
+  }
+});
 
 const revealObserver = new IntersectionObserver(
   (entries) => {
@@ -205,16 +238,61 @@ shareButton?.addEventListener("click", async () => {
 
 const rsvpForm = document.querySelector("#rsvp-form");
 const formStatus = document.querySelector("#form-status");
+const rsvpStorageKey = "aparna-aravind-rsvps";
 
-rsvpForm?.addEventListener("submit", (event) => {
+function getStoredRsvps() {
+  try {
+    return JSON.parse(localStorage.getItem(rsvpStorageKey) || "[]");
+  } catch (error) {
+    return [];
+  }
+}
+
+function saveStoredRsvps(entries) {
+  localStorage.setItem(rsvpStorageKey, JSON.stringify(entries));
+}
+
+async function saveServerRsvp(entry) {
+  try {
+    const response = await fetch("/api/rsvps", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(entry),
+    });
+
+    if (!response.ok) return false;
+    const data = await response.json();
+    return Boolean(data.saved);
+  } catch (error) {
+    return false;
+  }
+}
+
+rsvpForm?.addEventListener("submit", async (event) => {
   event.preventDefault();
   const data = new FormData(rsvpForm);
   const name = String(data.get("name") || "").trim();
+  const email = String(data.get("email") || "").trim();
   const attendance = String(data.get("attendance") || "");
-  const response = attendance === "yes" ? "We will save you a seat" : "Your blessings mean so much";
+  const message = String(data.get("message") || "").trim();
+  const entry = {
+    name,
+    email,
+    attendance,
+    message,
+    createdAt: new Date().toISOString(),
+  };
+
+  const serverSaved = await saveServerRsvp(entry);
+  if (!serverSaved) {
+    saveStoredRsvps([...getStoredRsvps(), entry]);
+  }
 
   if (formStatus) {
-    formStatus.textContent = `${response}, ${name || "dear guest"}.`;
+    formStatus.textContent = `Thank you for RSVP, ${name || "dear guest"}.`;
   }
 
   rsvpForm.reset();
