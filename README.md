@@ -54,7 +54,7 @@ Without SMTP credentials, RSVPs are still collected in the local CSV/JSON files.
    RSVP_ADMIN_TOKEN=brother2026 node server.js
    ```
 
-2. Open `http://localhost:4177/?preview=20260629-footer-rsvp#rsvp`.
+2. Open `http://localhost:4177/?preview=20260629-gallery-compliments#rsvp`.
 3. Fill the RSVP form and click **Send message**.
 4. Confirm the guest appears in the private CSV:
 

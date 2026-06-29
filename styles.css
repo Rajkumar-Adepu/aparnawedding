@@ -942,6 +942,15 @@ textarea {
   text-transform: uppercase;
 }
 
+.footer-compliments {
+  margin-top: 16px;
+  color: var(--ink);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.15rem, 2.8vw, 1.55rem);
+  font-style: italic;
+  line-height: 1.35;
+}
+
 .footer-love {
   margin-top: 18px;
   color: var(--gold-2);

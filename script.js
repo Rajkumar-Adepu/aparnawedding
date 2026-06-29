@@ -72,7 +72,7 @@ function setActiveNav() {
   const scrollPosition = window.scrollY + 180;
   let activeId = null;
 
-  sections.forEach((section) => {
+  [...sections].sort((a, b) => a.offsetTop - b.offsetTop).forEach((section) => {
     if (section.offsetTop <= scrollPosition) {
       activeId = section.id;
     }
