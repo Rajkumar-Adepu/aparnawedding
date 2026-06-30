@@ -1041,8 +1041,27 @@ textarea {
 
 @media (max-width: 560px) {
   .gate-seal {
-    width: 142px;
-    height: 142px;
+    width: 164px;
+    height: 164px;
+    gap: 6px;
+  }
+
+  .seal-photo {
+    width: 78px;
+    height: 78px;
+    max-width: 78px;
+    max-height: 78px;
+    margin-top: 18px;
+  }
+
+  .seal-label {
+    min-width: 118px;
+    margin: 0 0 18px;
+    padding: 6px 10px;
+    font-size: 0.7rem;
+    line-height: 1;
+    position: relative;
+    z-index: 2;
   }
 
   .site-header {
