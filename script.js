@@ -8,6 +8,49 @@ const navLinks = [...document.querySelectorAll(".main-nav a")];
 const sections = navLinks
   .map((link) => document.querySelector(link.getAttribute("href")))
   .filter(Boolean);
+let protectionMessageTimer = null;
+
+function showProtectionMessage() {
+  let notice = document.querySelector(".protection-toast");
+  if (!notice) {
+    notice = document.createElement("div");
+    notice.className = "protection-toast";
+    notice.setAttribute("role", "status");
+    notice.setAttribute("aria-live", "polite");
+    document.body.appendChild(notice);
+  }
+
+  notice.textContent = "This invitation is protected.";
+  notice.classList.add("is-visible");
+  clearTimeout(protectionMessageTimer);
+  protectionMessageTimer = setTimeout(() => {
+    notice.classList.remove("is-visible");
+  }, 1800);
+}
+
+function blockProtectedAction(event) {
+  event.preventDefault();
+  event.stopPropagation();
+  showProtectionMessage();
+}
+
+document.addEventListener("contextmenu", blockProtectedAction);
+document.addEventListener("dragstart", (event) => {
+  if (event.target instanceof HTMLImageElement) {
+    blockProtectedAction(event);
+  }
+});
+document.addEventListener("keydown", (event) => {
+  const key = event.key.toLowerCase();
+  const inspectKeys = ["i", "j", "c", "k"];
+  const ctrlInspect = event.ctrlKey && event.shiftKey && inspectKeys.includes(key);
+  const macInspect = event.metaKey && event.altKey && inspectKeys.includes(key);
+  const viewSource = (event.ctrlKey || event.metaKey) && ["u", "s"].includes(key);
+
+  if (event.key === "F12" || ctrlInspect || macInspect || viewSource) {
+    blockProtectedAction(event);
+  }
+});
 
 function openInvitation() {
   window.scrollTo({ top: 0, left: 0, behavior: "auto" });
