@@ -54,12 +54,14 @@ Without SMTP credentials, RSVPs are still collected in the local CSV/JSON files.
    RSVP_ADMIN_TOKEN=brother2026 node server.js
    ```
 
-2. Open `http://localhost:4177/?preview=20260629-gallery-compliments#rsvp`.
+2. Open `http://localhost:4177/?preview=20260704-formspree-rsvp#rsvp`.
 3. Fill the RSVP form and click **Send message**.
-4. Confirm the guest appears in the private CSV:
+4. Confirm the RSVP appears in Formspree for `https://formspree.io/f/xaqgarwo`.
+5. If Formspree needs first-submission confirmation, approve the email Formspree sends.
+6. For local fallback testing, confirm the guest appears in the private CSV:
 
    ```txt
    http://localhost:4177/api/rsvps.csv?token=brother2026
    ```
 
-5. The same details are also saved in `data/rsvps.json` and `data/rsvps.csv`.
+7. Local fallback details are also saved in `data/rsvps.json` and `data/rsvps.csv`.

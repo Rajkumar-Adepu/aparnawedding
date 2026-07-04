@@ -282,6 +282,7 @@ shareButton?.addEventListener("click", async () => {
 const rsvpForm = document.querySelector("#rsvp-form");
 const formStatus = document.querySelector("#form-status");
 const rsvpStorageKey = "aparna-aravind-rsvps";
+const rsvpEmailEndpoint = "https://formspree.io/f/xaqgarwo";
 
 function getStoredRsvps() {
   try {
@@ -296,6 +297,28 @@ function saveStoredRsvps(entries) {
 }
 
 async function saveServerRsvp(entry) {
+  try {
+    const response = await fetch(rsvpEmailEndpoint, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        _subject: "New RSVP for Aparna & Aravind Wedding",
+        name: entry.name,
+        email: entry.email,
+        attendance: entry.attendance === "yes" ? "Joyfully accepting" : "Sending blessings from afar",
+        message: entry.message || "-",
+        submittedAt: entry.createdAt,
+      }),
+    });
+
+    if (response.ok) return true;
+  } catch (error) {
+    // Fall through to the local preview server when the email endpoint is unavailable.
+  }
+
   try {
     const response = await fetch("/api/rsvps", {
       method: "POST",
