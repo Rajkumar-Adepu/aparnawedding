@@ -339,11 +339,11 @@ textarea {
 }
 
 .hero {
-  min-height: 96svh;
+  min-height: 100svh;
   display: grid;
   place-items: center;
   overflow: hidden;
-  padding: 120px 24px 72px;
+  padding: 112px 24px 64px;
 }
 
 .hero-image,
@@ -397,8 +397,59 @@ textarea {
   position: relative;
   z-index: 2;
   width: min(100%, 960px);
-  margin-top: 112px;
+  display: grid;
+  justify-items: center;
+  margin-top: 36px;
   text-align: center;
+}
+
+.hero-live {
+  width: min(100%, 760px);
+  margin-bottom: 34px;
+}
+
+.live-badge {
+  width: max-content;
+  margin: 0 auto 12px;
+  padding: 6px 14px;
+  border: 1px solid rgba(241, 216, 141, 0.46);
+  border-radius: 999px;
+  background: rgba(90, 17, 28, 0.72);
+  color: var(--gold-2);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.live-video-frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border: 1px solid rgba(241, 216, 141, 0.4);
+  border-radius: 8px;
+  background: rgba(8, 7, 6, 0.8);
+  box-shadow:
+    0 0 0 8px rgba(216, 177, 93, 0.06),
+    0 28px 78px rgba(0, 0, 0, 0.58);
+}
+
+.live-video-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.live-link {
+  display: inline-flex;
+  margin-top: 14px;
+  color: var(--gold-2);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 .ganesh-blessing {
@@ -751,6 +802,10 @@ textarea {
   line-height: 1.45;
 }
 
+.live-section-link {
+  margin-top: 22px;
+}
+
 .timeline {
   width: min(100%, 920px);
   display: grid;
@@ -1039,8 +1094,17 @@ textarea {
   }
 
   .hero {
-    min-height: 96svh;
-    padding-top: 150px;
+    min-height: 100svh;
+    padding: 146px 18px 54px;
+  }
+
+  .hero-content {
+    margin-top: 18px;
+  }
+
+  .hero-live {
+    width: min(100%, 680px);
+    margin-bottom: 28px;
   }
 
   .hero-frame {
@@ -1124,6 +1188,27 @@ textarea {
 
   .hero-copy {
     margin-top: 22px;
+  }
+
+  .hero-title {
+    font-size: clamp(2.8rem, 17vw, 4.75rem);
+  }
+
+  .hero-live {
+    margin-bottom: 24px;
+  }
+
+  .live-badge {
+    padding: 5px 12px;
+    font-size: 0.68rem;
+  }
+
+  .live-link {
+    font-size: 0.72rem;
+  }
+
+  .scroll-cue {
+    margin-top: 42px;
   }
 
   .countdown {
